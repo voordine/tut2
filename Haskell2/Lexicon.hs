@@ -64,7 +64,7 @@ charf entlist ent = ent `elem` entlist
   Note: a transitive verb combines first with the word on his right side and then on its left
   -}
 charf2:: [(E,E)] -> E -> E -> T 
-charf2 = undefined
+charf2 tuplist e1 e2 = (e2,e1) `elem` tuplist
 
 {---- Denotations ---------------------------------------}
 
@@ -75,8 +75,7 @@ thin :: E -> T
 thin = charf [Tina]
 
 likes :: E -> E -> T
-likes = undefined
---likes = charf2 [(Tina,Tina), (Tina,Bob)]  DELETE THE UNDEFINED AND REPLACE WITH THIS ONCE YOU FINISHED ex. 1a
+likes = charf2 [(Tina,Tina), (Tina,Bob)]
 
 {---- Exercise 2 ----
 
@@ -167,9 +166,9 @@ lexicon = Lexicon
 {-=== Verbs and Adverbs===-}
   , entry "ran"           iv                      ran
   , entry "swam"          iv                      swam
-  , entry "met"           tv                      met
+  , entry "met"           tv                      met-}
   , entry "likes"         tv                      likes
-  , entry "kissed"        tv                      kissed
+  {-}, entry "kissed"        tv                      kissed
   , entry "introduced"    dtv                     introduced_to -} --AND HERE
 
 {-=== Coordinations ===-}
