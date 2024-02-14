@@ -33,7 +33,7 @@ import Syntax
 -}
 
 charf :: [E] -> E -> T
-charf = undefined
+charf entlist ent = ent `elem` entlist
 
 {- d) After you have defined charf, try entering thin and tall in the console.
       If your definition is correct, ghci will display the sets tall and thin characterize
