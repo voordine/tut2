@@ -153,7 +153,10 @@ lexicon = Lexicon
   , entry "to"            (np:/np)                ( (\x -> x) :: E->E )
 
 {-=== Entities ===-}
+  , entry "John"          np                      John
+  , entry "Bob"           np                      Bob
   , entry "Tina"          np                      Tina
+  , entry "Mary"          np                      Mary
 
 {-=== Nouns and Adjectives ===-} {- Delete this "{ - " when youre done with ex 2 
   , entry "boy"           n                       boy
