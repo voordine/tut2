@@ -103,30 +103,31 @@ sentence 8  = "It_is_not_the_case_that Tina met Bob"
 sentence 9  = "Mary introduced Bob to John"
 sentence 10 = "Bob introduced Mary to Tina"
 
---boy ::
-boy = undefined
+boy :: E -> T
+boy = charf [John, Bob]
 
---girl ::
-girl = undefined
+girl :: E -> T
+girl = charf [Mary, Tina]
 
---ran ::
-ran = undefined
+ran :: E -> T
+ran = charf [John, Mary, Tina]
 
---swam ::
-swam = undefined
+swam :: E -> T
+swam = charf [Bob, John]
 
---met ::
-met = undefined
+met :: E -> E -> T
+met = charf2 [(John, Mary), (Mary, John)]
 
---kissed ::
-kissed = undefined
+kissed :: E -> E -> T
+kissed = charf2 [(John, Mary),(Mary, John)]
 
 
---charf3 ::
-charf3 = undefined
+charf3 :: [(E,E,E)] -> E -> E -> E -> T 
+-- volgorde controleren 
+charf3 tuplist e1 e2 e3 = (e3, e1, e2) `elem` tuplist
 
---introduced_to ::
-introduced_to = undefined
+introduced_to :: E -> E -> E -> T
+introduced_to = charf3 [(Mary, Bob, John), (Bob, Mary, Tina)]
 
 -- ONCE YOU HAVE DEFINED THESE FUNCTIONS, UNCOMMENT THEM IN THE LEXICON!
 
@@ -157,25 +158,24 @@ lexicon = Lexicon
   , entry "Tina"          np                      Tina
   , entry "Mary"          np                      Mary
 
-{-=== Nouns and Adjectives ===-} {- Delete this "{ - " when youre done with ex 2 
+{-=== Nouns and Adjectives ===-}
   , entry "boy"           n                       boy
-  , entry "girl"          n                       girl -}
+  , entry "girl"          n                       girl 
   , entry "tall"          n                       (tall :: E -> T)
-  , entry "thin"          n                       (thin :: E -> T)    {- DELETE THIS TOO
+  , entry "thin"          n                       (thin :: E -> T)    
 
 {-=== Verbs and Adverbs===-}
   , entry "ran"           iv                      ran
   , entry "swam"          iv                      swam
-  , entry "met"           tv                      met-}
+  , entry "met"           tv                      met
   , entry "likes"         tv                      likes
-  {-}, entry "kissed"        tv                      kissed
-  , entry "introduced"    dtv                     introduced_to -} --AND HERE
+  , entry "kissed"        tv                      kissed
+  , entry "introduced"    dtv                     introduced_to
 
 {-=== Coordinations ===-}
   , entry "and"           ((s:\s):/s)             ( (\x -> \y -> x && y ))
   , entry "or"            ((s:\s):/s)             ( (\x -> \y -> x || y ))
-
-  , entry "it_is_not_the_case_that" (s:/s)      ( \x -> not x )
+  , entry "it_is_not_the_case_that" (s:/s)        ( \x -> not x )
   ]
 
 
