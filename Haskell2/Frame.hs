@@ -8,7 +8,7 @@ import Data.List
    Haskell will then do all the lambda abstraction and function application stuff-}
 
 {- E : Entities, the datatype used to represent Entities -}
-data E = Tina
+data E = John | Bob | Mary | Tina
   deriving (Eq,Show,Enum,Bounded,Typeable)
 
 {- T : a type synonym for Bool. Bool is Haskell's built-in type for truth values.
