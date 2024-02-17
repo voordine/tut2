@@ -8,6 +8,9 @@
    :load Parser.hs
    to enable parsing
    -}
+
+--Nadine Kraakman, studentnumber: 7244444
+
 module Lexicon where
 
 import Data.Maybe
