@@ -123,7 +123,6 @@ kissed = charf2 [(John, Mary),(Mary, John)]
 
 
 charf3 :: [(E,E,E)] -> E -> E -> E -> T 
--- volgorde controleren 
 charf3 tuplist e1 e2 e3 = (e3, e1, e2) `elem` tuplist
 
 introduced_to :: E -> E -> E -> T
